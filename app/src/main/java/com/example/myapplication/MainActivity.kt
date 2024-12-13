@@ -3,6 +3,7 @@ package com.example.myapplication
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -39,7 +40,7 @@ class MainActivity : AppCompatActivity() {
 
         lifecycleScope.launch {
             listBook = BookServiceImpl.instance.list() ?: listOf()
-            recyclerView.adapter = BookAdapter(listBook)
+            recyclerView.adapter = BookAdapter(listBook, this@MainActivity)
         }
     }
 
@@ -53,10 +54,26 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun newBook(view: View) {
+    fun activityNewBook(view: View) {
         val intent = Intent(this, SaveBookActivity::class.java)
         startActivity(intent)
     }
 
+    fun activityUpdateBook(id: String) {
+        val intent = Intent(this, SaveBookActivity::class.java)
+        intent.apply {  putExtra("BOOK_ID", id) }
+        startActivity(intent)
+    }
 
+    fun delete(id: String) {
+        lifecycleScope.launch {
+            try {
+                BookServiceImpl.instance.delete(id)
+                onInit()
+                Toast.makeText(this@MainActivity, "Libro eliminado con éxito", Toast.LENGTH_SHORT).show()
+            } catch (e: Exception) {
+                Toast.makeText(this@MainActivity, "Error al eliminar el libro: ${e.message}", Toast.LENGTH_LONG).show()
+            }
+        }
+    }
 }

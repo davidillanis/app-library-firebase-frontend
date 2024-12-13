@@ -50,4 +50,14 @@ class BookServiceImpl private constructor() {
             }
         } catch (e: Exception) { null }
     }
+
+    suspend fun delete(id:String): ResponseStatusDTO? {
+        return try {
+            RetrofitInstanceObject.apiBook.delete(id)
+        } catch (e: HttpException) {
+            e.response()?.errorBody()?.let { errorBody ->
+                return Gson().fromJson(errorBody.string(), ResponseStatusDTO::class.java)
+            }
+        } catch (e: Exception) { null }
+    }
 }

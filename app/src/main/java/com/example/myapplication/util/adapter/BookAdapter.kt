@@ -8,12 +8,17 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.myapplication.MainActivity
 import com.example.myapplication.model.BookEntity
 import com.example.myapplication.R
+import com.example.myapplication.service.implementation.BookServiceImpl
+import kotlinx.coroutines.launch
 
-class BookAdapter(private val listBook: List<BookEntity>) : RecyclerView.Adapter<BookAdapter.BookViewHolder>() {
+class BookAdapter(private val listBook: List<BookEntity>, private val mainActivity: MainActivity) : RecyclerView.Adapter<BookAdapter.BookViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_book, parent, false)
@@ -32,6 +37,8 @@ class BookAdapter(private val listBook: List<BookEntity>) : RecyclerView.Adapter
         private val textTitle: TextView = itemView.findViewById(R.id.textTitle)
         private val textAuthor: TextView = itemView.findViewById(R.id.textAuthor)
         private val buttonIr: Button = itemView.findViewById(R.id.buttonIr)
+        private val buttonUpdate: Button = itemView.findViewById(R.id.buttonUpdate)
+        private val buttonDelete: Button = itemView.findViewById(R.id.buttonEliminar)
 
         fun bind(book: BookEntity) {
             textTitle.text = book.title
@@ -47,6 +54,14 @@ class BookAdapter(private val listBook: List<BookEntity>) : RecyclerView.Adapter
                 println("Nombre del libro: ${book.urlBook}")
                 val intent = Intent(Intent.ACTION_VIEW, Uri.parse(book.urlBook))
                 itemView.context.startActivity(intent)
+            }
+
+            buttonDelete.setOnClickListener {
+                mainActivity.delete(book.idBook)
+            }
+
+            buttonUpdate.setOnClickListener {
+                mainActivity.activityUpdateBook(book.idBook)
             }
         }
     }
