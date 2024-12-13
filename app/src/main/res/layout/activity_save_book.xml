@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SaveBookActivity">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <!-- Título del libro -->
+            <TextView
+                android:id="@+id/textTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Title"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/editTextTitle"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:hint="Enter title"
+                android:inputType="text"
+                android:padding="8dp" />
+
+            <!-- ISBN -->
+            <TextView
+                android:id="@+id/textIsbn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ISBN"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/editTextIsbn"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:hint="Enter ISBN"
+                android:inputType="text"
+                android:padding="8dp" />
+
+            <!-- Descripción -->
+            <TextView
+                android:id="@+id/textDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Description"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/editTextDescription"
+                android:layout_width="match_parent"
+                android:layout_height="96dp"
+            android:hint="Enter description"
+            android:inputType="textMultiLine"
+            android:padding="8dp" />
+
+            <!-- Editorial -->
+            <TextView
+                android:id="@+id/textEditorial"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Editorial"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/editTextEditorial"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:hint="Enter editorial"
+                android:inputType="text"
+                android:padding="8dp" />
+
+            <!-- Autor -->
+            <TextView
+                android:id="@+id/textAuthor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Author"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/editTextAuthor"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:hint="Enter author"
+                android:inputType="text"
+                android:padding="8dp" />
+
+            <!-- URL de la imagen -->
+            <TextView
+                android:id="@+id/textUrlImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Image URL"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/editTextUrlImage"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:hint="Enter image URL"
+                android:inputType="textWebEditText"
+                android:padding="8dp" />
+
+            <!-- URL del libro -->
+            <TextView
+                android:id="@+id/textUrlBook"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="URL"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/editTextUrlBook"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:hint="Enter book URL"
+                android:inputType="textWebEditText"
+                android:padding="8dp" />
+
+            <!-- Género -->
+            <TextView
+                android:id="@+id/textGender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Gender"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/editTextGender"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:hint="Enter genre"
+                android:inputType="text"
+                android:padding="8dp" />
+
+            <!-- Botón para registrar el libro -->
+            <Button
+                android:id="@+id/buttonRegister"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="16dp"
+                android:text="Guardar" />
+
+            <Button
+                android:id="@+id/buttonExit"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="16dp"
+                android:onClick="Principal"
+                android:text="Principal" />
+        </LinearLayout>
+    </ScrollView>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

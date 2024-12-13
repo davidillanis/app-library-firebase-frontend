@@ -1,5 +1,6 @@
 package com.example.myapplication
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.activity.enableEdgeToEdge
@@ -53,7 +54,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun newBook(view: View) {
-
+        val intent = Intent(this, SaveBookActivity::class.java)
+        startActivity(intent)
     }
 
 
